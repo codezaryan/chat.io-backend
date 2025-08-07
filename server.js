@@ -3,6 +3,8 @@ const { createServer } = require('http');
 const { Server } = require('socket.io');
 const path = require('path');
 
+const PORT = process.env.PORT || 8080;
+
 const app = express();
 const server = createServer(app);
 const io = new Server(server, {
@@ -47,7 +49,6 @@ io.on('connection', (socket) => {
     });
 });
 
-const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
     console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
